@@ -46,12 +46,12 @@ def interns(events):
     
     sleep(15)
     #have to work on this stuff also
-    location = driver.find_element_by_xpath("/html/body/div[1]/div[23]/div[2]/div/div[4]/div[1]/div/div/div/form[1]/div[3]/div/div/ul/li/input")
-    location.click()
-    sleep(7)
-    location.send_keys(entry_4.get())
-    location.send_keys(u'\ue007')
-    sleep(1)
+    # location = driver.find_element_by_xpath("/html/body/div[1]/div[23]/div[2]/div/div[4]/div[1]/div/div/div/form[1]/div[3]/div/div/ul/li/input")
+    # location.click()
+    # sleep(7)
+    # location.send_keys(entry_4.get())
+    # location.send_keys(u'\ue007')
+    # sleep(5)
 
     wfhchechmark = driver.find_element_by_xpath("/html/body/div[1]/div[23]/div[2]/div/div[4]/div[1]/div/div/div/form[1]/div[4]/div[1]/label/span")
     wfhchechmark.click()
@@ -66,11 +66,14 @@ def interns(events):
         sleep(3)
 
             
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[23]/div/div/div[2]/div[1]/div/div[2]/div[7]/div/div/a/button"))).click()
+        wait = WebDriverWait(driver, 5)
+        element = wait.until(EC.element_to_be_clickable((By.ID, "search_button")))
+        element.click()
                                                # /html/body/div[1]/div[23]/div/div/div[2]/div[1]/div/div[2]/div[7]/div/div/a/button
                                                #/html/body/div[1]/div[23]/div/div/div[2]/div[1]/div/div[2]/div[6]/div/div/a/button
                                                #/html/body/div[1]/div[23]/div/div/div[2]/div[1]/div/div[2]/div[7]/div/div/a/button
     
+
 
         proceedtoapp = driver.find_element_by_xpath("/html/body/div[1]/div[22]/div/div/div[1]/div[1]/div[2]/button")
         proceedtoapp.click()
@@ -78,7 +81,7 @@ def interns(events):
 
         whyshould = driver.find_element_by_xpath("/html/body/div[1]/div[22]/div/div/div/form/div[1]/textarea")
         whyshould.click()
-        whyshould.send_keys(entry_5.get())
+        whyshould.send_keys(entry_6.get())
 
             
         driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
@@ -99,28 +102,28 @@ root.geometry("400x250")
 label_1 = Label(root, text = "EMAIL ID")    
 label_2 = Label(root, text = "Password")
 label_3 = Label(root, text = "Field of internship")
-label_4 = Label(root, text = "Location")
+# label_4 = Label(root, text = "Location")
 label_5 = Label(root, text = "How many?")
 label_6 = Label(root, text = "Why do you want to be hired?")
 
 entry_1 = Entry(root)#this is a entry object!! not a string..
 entry_2 = Entry(root,show = "*")
 entry_3 = Entry(root)
-entry_4 = Entry(root)
+# entry_4 = Entry(root)
 entry_5 = Entry(root)
 entry_6 = Entry(root)
 
 label_1.grid(row = 0,sticky = "EW")
 label_2.grid(row = 1,sticky = "EW")
 label_3.grid(row = 2,sticky = "EW")
-label_4.grid(row = 3,sticky = "EW")
+# label_4.grid(row = 3,sticky = "EW")
 label_5.grid(row = 4,sticky = "EW")
 label_6.grid(row = 5,sticky = "EW")
 
 entry_1.grid(row = 0, column = 1)
 entry_2.grid(row = 1, column = 1)
 entry_3.grid(row = 2, column = 1)
-entry_4.grid(row = 3, column = 1)
+# entry_4.grid(row = 3, column = 1)
 entry_5.grid(row = 4, column = 1)
 entry_6.grid(row = 5, column = 1)
 
